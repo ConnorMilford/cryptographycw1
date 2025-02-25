@@ -30,7 +30,7 @@ class Problem5:
     
 
     def computeSecret(self, publicB, privateA, primeNum):
-        return (publicB ** privateA) % primeNum
+        return pow(publicB, privateA, primeNum)
     
     def computeCipherText(self):
         a = int(self.params['a']) # private 
@@ -41,9 +41,19 @@ class Problem5:
 
 
         return (textEncoder.encode_text(plaintext) * self.computeSecret(b, a, p)) % p
+    
 
+    def decryptCipherText(self, cipherText):
+        a = int(self.params['a'])  
+        b = int(self.params['B']) 
+        p = int(self.params['p']) 
+        
 
+        invS = pow(self.computeSecret(b, a, p), -1, p)
+        return (cipherText * invS) % p
 
+    def decodeCipherText(self, cipherText):
+        textEncoder.decode_number(self.decryptCipherText(cipherText))
 
 
     
