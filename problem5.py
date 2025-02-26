@@ -9,6 +9,7 @@ class Problem5:
         self.openFile(file)
         print("Params ", self.params)
     
+    #Opens file and reads into dict.
     def openFile(self, file):
         with open(file, "r") as f:
             for line in f:
@@ -26,21 +27,23 @@ class Problem5:
 
                 self.params[key] = value 
 
-
+    # Computes shared secret
+    # B^A % prime = Secret 
     def computeSecret(self, publicB, privateA, primeNum):
         return pow(publicB, privateA, primeNum)
     
 
+    #Returns cipherText 
     def computeCipherText(self):
-        a = int(self.params['a']) # private 
-        b = int(self.params['B']) # public
-        p = int(self.params['p']) #prime num
-        g = int(self.params['g']) # 
+        a = int(self.params['a'])  
+        b = int(self.params['B']) 
+        p = int(self.params['p']) 
+        g = int(self.params['g']) 
         plaintext = self.params['plaintext']
 
         return (textEncoder.encode_text(plaintext) * self.computeSecret(b, a, p)) % p
     
-
+    # Use inverse modulo to decrypt
     def decryptCipherText(self, cipherText):
         a = int(self.params['a'])  
         b = int(self.params['B']) 
@@ -50,7 +53,7 @@ class Problem5:
         invS = pow(self.computeSecret(b, a, p), -1, p)
         return (cipherText * invS) % p
 
-
+    #Decodes and decrpyts ciphertext
     def decodeCipherText(self, cipherText):
         return textEncoder.decode_number(self.decryptCipherText(cipherText))
 
