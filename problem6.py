@@ -1,3 +1,4 @@
+from textEncoder import encode_text, decode_number
 import math
 
 class Problem6:
@@ -33,7 +34,7 @@ class Problem6:
         maxSize = pow(2, 20)
 
         for i in range(minSize, maxSize):
-            print(f"Checked {i} keys out of {maxSize}".format(i, maxSize))
+            print(f"Checked {i} keys out of {maxSize}")
             key = self.computeKey(i)
             if key is None:
                 continue
@@ -43,8 +44,9 @@ class Problem6:
             if m2_int is None:
                 continue
 
-            m2String = self.intToString(m2_int)
-
+            m2String = decode_number(m2_int)
+            print(m2String)
+            
             if self.checkM2Candidate(m2String):
                 print("Found key: ", key)
                 self.key = key
@@ -75,17 +77,6 @@ class Problem6:
         
     
     # returns boolean based on whether the string contains " THE " & " TO "
-    def checkM2Candidate(self, string):
+    def checkM2Candidate(self, string):     
         return isinstance(string, str) and " THE " in string.upper() and " TO " in string.upper()
         
-    
-    def intToString(self, m2):
-        try:
-            hex_string = hex(m2)[2:] # Convert to hex string
-            # Add a leading zero if the hex string length is odd
-            if len(hex_string) % 2 != 0:
-                hex_string = '0' + hex_string
-            return bytes.fromhex(hex_string).decode('utf-8', errors='ignore')
-        except:
-            
-            return None
