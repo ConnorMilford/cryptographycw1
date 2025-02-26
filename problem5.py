@@ -29,19 +29,19 @@ class Problem5:
 
     # Computes shared secret
     # B^A % prime = Secret 
-    def computeSecret(self, publicB, privateA, primeNum):
+    def computeSharedSecret(self, publicB, privateA, primeNum):
         return pow(publicB, privateA, primeNum)
     
 
-    #Returns cipherText 
-    def computeCipherText(self):
+    #Returns encrypted cipherText 
+    def encryptMessage(self):
         a = int(self.params['a'])  
         b = int(self.params['B']) 
         p = int(self.params['p']) 
         g = int(self.params['g']) 
         plaintext = self.params['plaintext']
 
-        return (textEncoder.encode_text(plaintext) * self.computeSecret(b, a, p)) % p
+        return (textEncoder.encode_text(plaintext) * self.computeSharedSecret(b, a, p)) % p
     
     # Use inverse modulo to decrypt
     def decryptCipherText(self, cipherText):
@@ -50,11 +50,11 @@ class Problem5:
         p = int(self.params['p']) 
         
 
-        invS = pow(self.computeSecret(b, a, p), -1, p)
+        invS = pow(self.computeSharedSecret(b, a, p), -1, p)
         return (cipherText * invS) % p
 
     #Decodes and decrpyts ciphertext
-    def decodeCipherText(self, cipherText):
+    def decodeAndDecryptCipherText(self, cipherText):
         return textEncoder.decode_number(self.decryptCipherText(cipherText))
 
 
