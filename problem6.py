@@ -52,7 +52,7 @@ class Problem6:
             if self.checkM2Candidate(m2String):
                 print(f"Candidate found - {m2String} at {i-minSize} \n")
                 print(f"Key is {key}")       
-                self.writeToFile(m2String)
+                self.key = key
                 break
                 
     

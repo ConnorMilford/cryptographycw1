@@ -6,6 +6,10 @@ Using a for loop, each i can then be passed to a function to generate a key base
 
 If this key can decode C2 - the ciphertext of message two, and this Plaintext m2 contains " THE " AND " TO " it can be said the key is correct.
 
+Naturally this is a large amount of computation so some time saving has bene implemented. 
+When computing the n^-1 (Inverse Modulus) of any number, we can first check if gcd(n, prime) == 1.
+If this is not the case do not need to compute this and can return None.
+
 Initially this was returning no results so I changed the function to instead write each potential match:
  string contains " TO " OR " THE " to a seperate file and check it manually for english plaintext.
 
@@ -13,3 +17,4 @@ Initially this was returning no results so I changed the function to instead wri
   THOUSAND THREE HUNDRED THIRTY SEVEN POUNDS AVAILABLE TO TRADE SEND BUY TO BUY STONKS SEND SELL TO SELL STONKS at 14115"
 
 I then modified the algorithm to search for the word "TESLA"
+
