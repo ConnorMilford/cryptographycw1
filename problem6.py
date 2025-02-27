@@ -1,3 +1,4 @@
+import multiprocessing
 from textEncoder import encode_text, decode_number
 import math
 
@@ -34,7 +35,10 @@ class Problem6:
         maxSize = pow(2, 20)
 
         for i in range(minSize, maxSize):
-            print(f"Checked {i} keys out of {maxSize}")
+            if i % 1000 == 0:
+                print(f"Checked {i-minSize} keys out of {maxSize-minSize}")
+                
+                
             key = self.computeKey(i)
             if key is None:
                 continue
@@ -45,13 +49,10 @@ class Problem6:
                 continue
 
             m2String = decode_number(m2_int)
-            print(m2String)
             
             if self.checkM2Candidate(m2String):
-                print("Found key: ", key)
-                self.key = key
-                print("Decrypted Message: ", m2String)
-                break
+                print("Potential candidate written to file")
+                self.writeToFile(m2String)
                 
     
     #c1-ciphertext
@@ -78,5 +79,9 @@ class Problem6:
     
     # returns boolean based on whether the string contains " THE " & " TO "
     def checkM2Candidate(self, string):     
-        return isinstance(string, str) and " THE " in string.upper() and " TO " in string.upper()
-        
+        return " THE " in string.upper() or " TO " in string.upper() 
+    
+
+    def writeToFile(self, string):
+        with open("potentialMessages.txt", "a") as f:
+            f.write(f"{string} \n\n")
