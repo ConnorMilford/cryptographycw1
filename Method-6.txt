@@ -16,5 +16,5 @@ Initially this was returning no results so I changed the function to instead wri
  This then showed me the plaintext "YOUR HOLDINGS ARE TESLA TWENTY THREE HUNDRED MICROSOFT FOURTY TWO HUNDRED YOU HAVE THIRTY ONE
   THOUSAND THREE HUNDRED THIRTY SEVEN POUNDS AVAILABLE TO TRADE SEND BUY TO BUY STONKS SEND SELL TO SELL STONKS at 14115"
 
-I then modified the algorithm to search for the word "TESLA"
+I then modified the algorithm to search for the word "TESLA". 
 

@@ -79,7 +79,7 @@ class Problem6:
         
     
     # returns boolean based on whether the string contains " THE " & " TO "
-    # UPDATED TO TESLA IN ORDER TO 
+    # UPDATED TO TESLA 
     def checkM2Candidate(self, string):     
         return " TESLA " in string.upper() 
     
