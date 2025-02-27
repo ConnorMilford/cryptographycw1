@@ -20,15 +20,8 @@ def runProblem6():
     p6.openFile("problem-6-data.txt")
     p6.bruteForceMessage()
 
-def test():
-    str = "The cat went to the market"
-    p6 = Problem6()
-    enc = encode_text(str)
-    p6.computeKey()  
 
 def main():
-    #runProblem5()
-    #runProblem6()
     runProblem6()
 
 

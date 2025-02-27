@@ -1,9 +1,8 @@
-import multiprocessing
 from textEncoder import encode_text, decode_number
 import math
 
 class Problem6:
-
+    
 
     def __init__(self):
         self.params = {}
@@ -51,8 +50,10 @@ class Problem6:
             m2String = decode_number(m2_int)
             
             if self.checkM2Candidate(m2String):
-                print("Potential candidate written to file")
+                print(f"Candidate found - {m2String} at {i-minSize} \n")
+                print(f"Key is {key}")       
                 self.writeToFile(m2String)
+                break
                 
     
     #c1-ciphertext
@@ -78,8 +79,9 @@ class Problem6:
         
     
     # returns boolean based on whether the string contains " THE " & " TO "
+    # UPDATED TO TESLA IN ORDER TO 
     def checkM2Candidate(self, string):     
-        return " THE " in string.upper() or " TO " in string.upper() 
+        return " TESLA " in string.upper() 
     
 
     def writeToFile(self, string):
