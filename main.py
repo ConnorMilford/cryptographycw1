@@ -25,11 +25,11 @@ def runProblem7():
     p7 = Problem7()
     p7.openFile("parameters.txt")
     p7.openFile("problem-7-data.txt")
-    print(p7.findSharedSecret())
+    print(p7.attemptKeyCalculation())
 
 def main():
     runProblem7()
 
 
 if __name__ == "__main__":
-    main()    
+    main()

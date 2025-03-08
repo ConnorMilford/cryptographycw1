@@ -1,0 +1,23 @@
+
+P is a safe prime. Since q = (p - 1) // 2 is also prime.
+
+Therefore we can solve for the discrete logarithm of q not p cutting search space in half.
+This still leaves us with a huge number however.
+
+g^x = a mod p. 
+
+find order of g. which is 1023 bits (p/2). so baby step giant step does not work.
+
+using the isSafePrime function, which also returns a list of factors in the case of p; 2, 40898502245051874122316751553312467715868104870502135871741373173670955687338215657768424827017269527549076378700643938936112407960195096600210341924819584633356877168040889598679859304065198208029155613160569891138001460385084535051069948194131475494728251250417776593891845950604228127787880763888605034712688635367211239956731880339996165538521666417589705123937116738025489425026369333965460935506456875855451948332478373078678888449064132101681466496060187168090865147103380078681284056918319517696233060848009963341679493886493210520862520130323115547585686360735217029495011817066685532817920778686132815031821
+this function also returns whether or not the number is a safe prime which it is.
+
+Since the only factors of p are 2 and the above p/2 it means that a pohlig-hellman attack is not feasible.  
+
+Therefore we need to rely on the fact that we know that the plaintext is one of two messages. 20190 or 272991.
+
+    since c= K ​⋅ m mod p
+    and we have c. we can therefore compute the modular inverse of each plaintext.
+        K congruent to inverse m * c % p.
+    this should therefore yield a valid key. 
+
+
