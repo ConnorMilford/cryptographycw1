@@ -18,6 +18,9 @@ Therefore we need to rely on the fact that we know that the plaintext is one of 
     since c= K ​⋅ m mod p
     and we have c. we can therefore compute the modular inverse of each plaintext.
         K congruent to inverse m * c % p.
-    this should therefore yield a valid key. 
+    
+Alice has sent the message Sell.
+
+
 
 

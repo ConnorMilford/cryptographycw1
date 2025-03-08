@@ -69,16 +69,23 @@ class Problem7:
         return self.decryptWithKey(k1, k2, prime, c)
     
     def decryptWithKey(self, key1, key2, prime, c):
+        A = int(self.params['A'])
+        B = int(self.params['B'])
         invKey1 = pow(key1, -1, prime)
         invKey2 = pow(key2, -1, prime)
         
         m1 = (c * invKey1) % prime
         m2 = (c * invKey2) % prime
         
-        print(f"Message 1: {m1}\n")
-        print(f"Message 2: {m2}\n")
+        print(f"Message 1: {m1}\n Key: {key1} \n")
+        print(f"Message 2: {m2}\n Key: {key2}\n")
         
         
+        
+
+        
+        
+
             
 
                     
