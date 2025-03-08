@@ -28,6 +28,7 @@ def runProblem7():
     print(p7.attemptKeyCalculation())
 
 def main():
+    #runProblem6()
     runProblem7()
 
 

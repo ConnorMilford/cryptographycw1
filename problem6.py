@@ -51,7 +51,8 @@ class Problem6:
             
             if self.checkM2Candidate(m2String):
                 print(f"Candidate found - {m2String} at {i-minSize} \n")
-                print(f"Key is {key}")       
+                print(f"Key is {key} \n")  
+                print(f"M2 int = {m2_int} \n")     
                 self.key = key
                 break
                 
